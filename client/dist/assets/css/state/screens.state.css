@@ -1,0 +1,15 @@
+.game--actived{
+    display: flex;
+}
+
+.screen-home--actived{
+    display: flex;
+}
+
+.game__envets__time--actived{
+    display: flex;
+}
+
+.game__events__message--actived{
+    display: flex;
+}

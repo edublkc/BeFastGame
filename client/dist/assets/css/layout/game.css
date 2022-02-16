@@ -1,0 +1,74 @@
+.game__events__board{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 15px;
+    transition: 0.2s;
+}
+
+.game__events__board__draw{
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    background-position: center;
+    background-size: cover;
+    transition: opacity 0.2s;
+}
+
+.game__envets__time{
+    width: 100%;
+    padding: 0 10px;
+    height: fit-content;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.timer{
+    width: 100%;
+    height: 10px;
+    border: 1px solid #052F6E;
+    background-color: #052F6E;
+    border-radius: 20px;
+}
+
+.timer_count{
+    width: 100%;
+    height: 100%;
+    background-color: #ffbc28;
+    border-radius: 20px;
+    transition: width 0.2s;
+}
+
+#wait-time{
+    display: flex;
+}
+
+#wait-time .timer_count{
+    background-color: #28a9ff;
+}
+
+.game__events__message{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+.events__message__player__name, .events__message__text{
+    font-size: 16px;
+    font-weight: 700;
+    color:#ffbc28;
+}
+
+#info-text .events__message__text{
+    font-size: 12px;
+    color:#ccc;
+}

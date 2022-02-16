@@ -1,0 +1,11 @@
+.btn{
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
+    border-bottom: 3px solid;
+    transition: 0.2s;
+}
+
+.btn:hover{
+    transform: scale(0.95);
+}

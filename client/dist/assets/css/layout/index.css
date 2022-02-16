@@ -1,0 +1,85 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen-home {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 50px;
+}
+
+.screen-home::before {
+    content: '';
+    background-image: url(../../image/img2.svg);
+    background-repeat: no-repeat;
+   /* clip-path: circle(45% at 20% 50%);*/
+    border-radius: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.login i {
+    font-size: 14px;
+}
+
+.login__logo{
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 30px;
+}
+
+.login__logo img{
+    width: 100%;
+}
+
+#nick-input {
+    border: 2px solid rgb(255, 255, 255);
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+    color: rgb(252, 249, 249);
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#nick-input::placeholder {
+    color: rgb(223, 219, 219);
+    font-weight: 400;
+}
+
+.login__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 800px){
+    main{
+        padding: 0 2%;
+    }
+
+    .screen-home{
+        justify-content: center;
+        padding: 0 0;
+        background: transparent;
+    }
+
+    .screen-home::before{
+        display: none;
+    }
+
+}

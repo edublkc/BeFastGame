@@ -1,0 +1,11 @@
+.events__message--wrong{
+    color: #fd4246;
+}
+
+.game__events--actived{
+    display: flex;
+}
+
+.player__name--wrong{
+    color: #fd4246;
+}
