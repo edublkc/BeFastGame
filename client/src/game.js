@@ -33,6 +33,7 @@ var gameStarted = null
 var randomNumber = 0
 var stopTime = false
 var currentRound = 0
+var waitingForNewRound = false
 
 var PlayerId = ''
 var listOfPlayers = []
@@ -117,16 +118,23 @@ function setEventListenerInEmojiDivs(){
 
     allDivs.forEach((div,index) => {
         if(index == randomNumber){
-            div.addEventListener('click',()=>{
-                clickInTheOddEmoji()
-            })
+            div.addEventListener('click',clickInTheOddEmoji)
+            if(waitingForNewRound){
+                div.removeEventListener('click',clickInTheOddEmoji)
+            }
         }else{
-            div.addEventListener('click',()=>{
-                clickInTheWrongEmoji()
-            })
+            div.addEventListener('click',clickInTheWrongEmoji)
+            if(waitingForNewRound){
+                div.removeEventListener('click',clickInTheWrongEmoji)
+            }
         }
     })
+
+   
 }
+
+
+
 
 function showTheGameBoard() {
     const board = document.querySelector('.game__events__board')
@@ -188,6 +196,7 @@ function matchTimeOver() {
 }
 
 function newRoundTimeOver() {
+    waitingForNewRound = false
     removeInfoMessage()
     resetGameEventBoard()
     startNewRound()
@@ -237,6 +246,7 @@ function clickInTheOddEmoji() {
     if(!checkPlayerMarkerWrong()){
         stopTime = true
         removeMatchTimer()
+        
 
         giveThePoints()
         showTheOddEmoji()
@@ -250,8 +260,11 @@ function clickInTheOddEmoji() {
 
 
 var clickInTheWrongEmoji = function (){
-    markAsWrongAnswer()
-    setWrongAnswerIcon()
+    if(!checkPlayerMarkerWrong()){
+        markAsWrongAnswer()
+        setWrongAnswerIcon()
+    }
+   
 }
 
 function markAsWrongAnswer(){
@@ -310,6 +323,8 @@ function setInfoMessageNoOneWon() {
 
 
 function callNewRoundTimer() {
+    waitingForNewRound = true
+    setEventListenerInEmojiDivs()
     setTimeout(()=>{
         stopTime = false
     },1000)
@@ -324,6 +339,7 @@ function callNewRoundTimer() {
 
     turnTimerCount(5, timerConfigs)
 }
+
 
 
 function removeInfoMessage() {
